@@ -42,7 +42,7 @@ input {
 }
 
 button {
-    width: 25%;
+    padding: 5px;
     margin: 0 auto 20px auto;
     border-radius: 7px;
 }
