@@ -53,6 +53,16 @@ button {
     border-radius: 7px;
 }
 
+#sprite {
+    width: 50%;
+}
+
+#types {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
 .bottom-section {
     display: flex;
     justify-content: center;
