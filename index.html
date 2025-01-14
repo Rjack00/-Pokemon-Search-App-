@@ -10,15 +10,19 @@
     <h1>Pokemon Search App</h1>
     <main>
         <label for="search-input">Search for Pokemon Name or ID:</label>
-        <input type="text" id="search-input">
+        <input type="text" id="search-input" required>
         <button id="search-button">Search</button>
 
-        <div id="pokemon-name"></div>
-        <div id="pokemon-id"></div>
-        <div id="weight"></div>
-        <div id="height"></div>
-        <div id="types"></div>
-        <div id="image"></div>
+        <div class="name-container">
+            <div id="pokemon-name" class="details"></div>
+            <div id="pokemon-id" class="details"></div>
+        </div>
+        <div class="weight-container">
+            <div id="weight" class="details"></div>
+            <div id="height" class="details"></div>
+        </div>
+        <div id="image" class="details"></div>
+        <div id="types" class="details"></div>
         <div class="bottom-section">
             <table class="table">
                 <thead>
@@ -30,27 +34,27 @@
                 <tbody>
                     <tr>
                         <td>HP:</td>
-                        <td id="hp"></td>
+                        <td id="hp" class="details"></td>
                     </tr>
                     <tr>
                         <td>Attack:</td>
-                        <td id="attack"></td>
+                        <td id="attack" class="details"></td>
                     </tr>
                     <tr>
                         <td>Defense:</td>
-                        <td id="defense"></td>
+                        <td id="defense" class="details"></td>
                     </tr>
                     <tr>
                         <td>Sp. Attack:</td>
-                        <td id="special-attack"></td>
+                        <td id="special-attack" class="details"></td>
                     </tr>
                     <tr>
                         <td>Sp. Defense:</td>
-                        <td id="special-defense"></td>
+                        <td id="special-defense" class="details"></td>
                     </tr>
                     <tr>
                         <td>Speed:</td>
-                        <td id="speed"></td>
+                        <td id="speed" class="details"></td>
                     </tr>
                 </tbody>
             </table>
