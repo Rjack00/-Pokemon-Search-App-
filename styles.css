@@ -53,8 +53,19 @@ button {
     border-radius: 7px;
 }
 
+.mid-section {
+    margin: auto;
+    align-items: center;
+}
+
+.top-details {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
 #sprite {
-    width: 30%;
+    width: 200px;
 }
 
 #types {
@@ -63,15 +74,8 @@ button {
     column-gap: 20px;
 }
 
-.types-div2 {
-    background-color: rgb(49, 255, 135);
-    padding: 2px 7px;
-    color: black;
-    border-radius: 7px;
-}
-
-.types-div1 {
-    background-color: rgb(233, 250, 3);
+.types-div {
+    background-color: rgb(231, 231, 231);
     padding: 2px 7px;
     color: black;
     border-radius: 7px;
@@ -99,4 +103,25 @@ th {
 td {
     padding: 8px;
     border: 1px solid var(--border-color);
+}
+
+
+@media (max-width: 700px) {
+    .mid-section {
+        font-size: .9rem;
+    }
+    #types {
+        column-gap: 50px;
+    }
+    #sprite {
+        width: 120px;
+    }
+    .table {
+        font-size: .7rem;
+    }
+
+    th {
+        font-size: .9rem;
+    }
+    
 }
