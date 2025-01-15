@@ -54,13 +54,27 @@ button {
 }
 
 #sprite {
-    width: 50%;
+    width: 30%;
 }
 
 #types {
     display: flex;
     justify-content: center;
     column-gap: 20px;
+}
+
+.types-div2 {
+    background-color: rgb(49, 255, 135);
+    padding: 2px 7px;
+    color: black;
+    border-radius: 7px;
+}
+
+.types-div1 {
+    background-color: rgb(233, 250, 3);
+    padding: 2px 7px;
+    color: black;
+    border-radius: 7px;
 }
 
 .bottom-section {
