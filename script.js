@@ -13,6 +13,7 @@ const pokemonDefense = document.getElementById("defense");
 const pokemonSpAttack = document.getElementById("special-attack");
 const pokemonSpDefense = document.getElementById("special-defense");
 const pokemonSpeed = document.getElementById("speed");
+const midSection = document.getElementById("mid-section");
 
 
 const fetchData = async () => {
@@ -60,6 +61,7 @@ const showResults = (data) => {
   pokemonSpAttack.textContent = `${specialAttack}`;
   pokemonSpDefense.textContent = `${specialDefense}`;
   pokemonSpeed.textContent = `${speed}`;
+  midSection.className = "mid-section";
 
 }
 
