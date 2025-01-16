@@ -69,18 +69,6 @@ searchButton.addEventListener('click', () => {
 
   const detailsElements = document.querySelectorAll(".details");
   detailsElements.forEach(elem => elem.innerHTML = "" );
-  // pokemonName.textContent = ``;
-  // pokemonId.textContent = ``;
-  // pokemonWeight.textContent = ``;
-  // pokemonHeight.textContent = ``;
-  // pokemonTypes.innerHTML = ``
-  // pokemonImage.innerHTML = ``;
-  // pokemonHp.textContent = ``;
-  // pokemonAttack.textContent = ``;
-  // pokemonDefense.textContent = ``;
-  // pokemonSpAttack.textContent = ``;
-  // pokemonSpDefense.textContent = ``;
-  // pokemonSpeed.textContent = ``;
   
   if(searchInput.value) {
     fetchData();
