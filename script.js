@@ -7,13 +7,14 @@ const pokemonWeight = document.getElementById("weight");
 const pokemonHeight = document.getElementById("height");
 const pokemonTypes = document.getElementById("types");
 const pokemonImage = document.getElementById("image");
-const pokemonHp = document.getElementById("hp");
-const pokemonAttack = document.getElementById("attack");
-const pokemonDefense = document.getElementById("defense");
-const pokemonSpAttack = document.getElementById("special-attack");
-const pokemonSpDefense = document.getElementById("special-defense");
-const pokemonSpeed = document.getElementById("speed");
+// const pokemonHp = document.getElementById("hp");
+// const pokemonAttack = document.getElementById("attack");
+// const pokemonDefense = document.getElementById("defense");
+// const pokemonSpAttack = document.getElementById("special-attack");
+// const pokemonSpDefense = document.getElementById("special-defense");
+// const pokemonSpeed = document.getElementById("speed");
 const midSection = document.getElementById("mid-section");
+const bottomSection = document.getElementById("bottom-section");
 
 
 const fetchData = async () => {
@@ -46,6 +47,41 @@ const showResults = (data) => {
   const image = sprites.front_default;
 
   console.log("Data: ", data);
+  bottomSection.innerHTML = `
+    <table class="table">
+      <thead>
+          <tr>
+              <th class="th-left">Base</th>
+              <th class="th-right">Stats</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>HP:</td>
+              <td id="hp" class="details">${hp}</td>
+          </tr>
+          <tr>
+              <td>Attack:</td>
+              <td id="attack" class="details">${attack}</td>
+          </tr>
+          <tr>
+              <td>Defense:</td>
+              <td id="defense" class="details">${defense}</td>
+          </tr>
+          <tr>
+              <td>Sp. Attack:</td>
+              <td id="special-attack" class="details">${specialAttack}</td>
+          </tr>
+          <tr>
+              <td>Sp. Defense:</td>
+              <td id="special-defense" class="details">${specialDefense}</td>
+          </tr>
+          <tr>
+              <td class="td-bottom-left">Speed:</td>
+              <td id="speed" class="details td-bottom-right">${speed}</td>
+          </tr>
+      </tbody>
+    </table>`;
 
   pokemonName.textContent = `${name.toUpperCase()}`;
   pokemonId.textContent = `#${id}`;
@@ -55,15 +91,9 @@ const showResults = (data) => {
     return pokemonTypes.innerHTML += `<div class="types-div">${type.toUpperCase()}</div>`;
   });
   pokemonImage.innerHTML = `<img id="sprite" src="${image}" alt="Pokemon Image">`;
-  pokemonHp.textContent = `${hp}`;
-  pokemonAttack.textContent = `${attack}`;
-  pokemonDefense.textContent = `${defense}`;
-  pokemonSpAttack.textContent = `${specialAttack}`;
-  pokemonSpDefense.textContent = `${specialDefense}`;
-  pokemonSpeed.textContent = `${speed}`;
   midSection.className = "mid-section";
-
 }
+
 
 searchButton.addEventListener('click', () => {
 
