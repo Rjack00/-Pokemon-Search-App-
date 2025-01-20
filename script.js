@@ -65,7 +65,7 @@ const typesArr = [
   'dark'
 ];
 
-console.log("typesArr lenght: ", typesArr.length);
+console.log("typesArr length: ", typesArr.length);
 
 const showResults = (data) => {
   const {
@@ -137,7 +137,7 @@ const showResults = (data) => {
     const pokemonTypes = document.getElementById("types");
     typeNames.forEach((type) => {
       const typeDiv = document.createElement("div");
-      typeDiv.className= "types-div";
+      typeDiv.className= `types-div ${type.toLowerCase()}`;
       typeDiv.textContent = type.toUpperCase();
       pokemonTypes.appendChild(typeDiv);
     });
