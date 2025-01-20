@@ -1,30 +1,22 @@
 const urlQuery = "https://pokeapi-proxy.freecodecamp.rocks/api/pokemon";
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
-// const pokemonName = document.getElementById("pokemon-name");
-// const pokemonId = document.getElementById("pokemon-id");
-// const pokemonWeight = document.getElementById("weight");
-// const pokemonHeight = document.getElementById("height");
-
-// const pokemonImage = document.getElementById("image");
-// const pokemonHp = document.getElementById("hp");
-// const pokemonAttack = document.getElementById("attack");
-// const pokemonDefense = document.getElementById("defense");
-// const pokemonSpAttack = document.getElementById("special-attack");
-// const pokemonSpDefense = document.getElementById("special-defense");
-// const pokemonSpeed = document.getElementById("speed");
-
+const detailsElements = document.querySelectorAll(".details");
 const midSection = document.getElementById("mid-section");
 const bottomSection = document.getElementById("bottom-section");
 
 
 const fetchData = async () => {
   const cleanSearchInput = searchInput.value.toLowerCase().replace(/[^a-z0-9]/g, '');
-  console.log(cleanSearchInput);
   try {
     const res = await fetch(`${urlQuery}/${cleanSearchInput}`);
     const data = await res.json();
     showResults(data);
+    const res2 = await fetch(`${urlQuery}`);
+    const data2 = await res2.json();
+    // uniqueTypes used to get typesArr from all pokemon. //
+    // const uniqueTypes = await getTypes(data2);
+    // console.log("unique types: ", uniqueTypes);
   }catch (error) {
     console.error(`The following error occurred while fetching data from URL: https://pokeapi-proxy.freecodecamp.rocks/api/pokemon...
 ERROR: ${error}`);
@@ -32,7 +24,48 @@ ERROR: ${error}`);
   }
 }
 
+// getTypes used to get types from all pokemon objects for typesArr. //
+// const getTypes = async (data2) => {
+//   const allTypes = new Set();
 
+//   for (const obj of data2.results) {
+//     try{
+//       const response = await fetch(obj.url);
+//       const data3 = await response.json();
+
+//       data3.types.forEach(typeObj => {
+//         allTypes.add(typeObj.type.name);
+//       })
+//     } catch(error) {
+//       console.log("Error getting Pokémon types - ERROR: ", error);
+//     }
+//   }
+
+//   return Array.from(allTypes);
+// }
+
+const typesArr = [
+  'grass',
+  'poison',
+  'fire',
+  'flying',
+  'water',
+  'bug',
+  'normal',
+  'electric',
+  'ground',
+  'fairy',
+  'fighting',
+  'psychic',
+  'rock',
+  'steel',
+  'ice',
+  'ghost',
+  'dragon',
+  'dark'
+];
+
+console.log("typesArr lenght: ", typesArr.length);
 
 const showResults = (data) => {
   const {
@@ -63,7 +96,7 @@ const showResults = (data) => {
     <div id="image" class=""><img id="sprite" src="${image}" alt="Pokemon Image"></div>
     <div id="types" class=""></div>`;
 
-    
+    midSection.className = "mid-section details";
 
   bottomSection.innerHTML = `
     <table class="table">
@@ -108,20 +141,12 @@ const showResults = (data) => {
       typeDiv.textContent = type.toUpperCase();
       pokemonTypes.appendChild(typeDiv);
     });
-
-  // pokemonName.textContent = `${name.toUpperCase()}`;
-  // pokemonId.textContent = `#${id}`;
-  // pokemonWeight.textContent = `Weight: ${weight}`;
-  // pokemonHeight.textContent = `Height: ${height}`;
-  
-  // pokemonImage.innerHTML = `<img id="sprite" src="${image}" alt="Pokemon Image">`;
 }
 
 
 searchButton.addEventListener('click', () => {
-  const detailsElements = document.querySelectorAll(".details");
   detailsElements.forEach(elem => elem.innerHTML = "" );
-  
+  midSection.className = "";
   if(searchInput.value) {
     fetchData();
     searchInput.value = '';
@@ -131,8 +156,9 @@ searchButton.addEventListener('click', () => {
 })
 
 searchInput.addEventListener("keydown", (e) => {
-
+  // midSection.className = "";
   detailsElements.forEach(elem => elem.innerHTML = "" );
+
   if(e.key === "Enter") {
     e.preventDefault();
 
@@ -140,6 +166,7 @@ searchInput.addEventListener("keydown", (e) => {
       fetchData();
       searchInput.value = '';
     } else {
+      midSection.className = "";
       alert ("Please enter a Pokémon name or ID");
     }
   }
