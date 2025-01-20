@@ -87,11 +87,85 @@ button {
 }
 
 .types-div {
-    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
     padding: 2px 7px;
     color: black;
-    border-radius: 7px;
+    border-radius: 5px;
+    border: 1px solid white;
 }
+
+.grass {
+    background: radial-gradient(rgb(32, 253, 3), rgb(115, 253, 96));
+}
+
+.poison {
+    background: radial-gradient(rgb(111, 2, 214), rgb(111, 2, 214));
+    color: white;
+}
+
+.fire {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.water {
+    background: radial-gradient(rgb(2, 49, 255), rgb(2, 49, 255));
+    color: white;
+}
+
+.bug {
+    background: radial-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    color: white;
+}
+
+.normal {
+    background: radial-gradient(rgb(223, 222, 222), rgb(223, 222, 222));
+}
+
+.electric {
+    background: radial-gradient(rgb(250, 248, 120), rgb(250, 248, 120));
+}
+
+/* LEFT OFF HERE */
+
+.ground {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.fairy {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.fighting {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.psychic {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.rock {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.steel {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.ice {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.ghost {
+    background: radial-gradient(rgb(255, 255, 255), rgb(231, 231, 231));
+}
+
+.dragon {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
+.dark {
+    background: radial-gradient(rgb(232, 245, 55), rgb(247, 144, 144));
+}
+
 
 .bottom-section {
     display: flex;
