@@ -20,47 +20,47 @@ ERROR: ${error}`);
 }
 
 //getTypes used to get types from all pokemon objects for typesArr. //
-const getTypes = async () => {
-  console.log("getTypes function Running...");
-  console.time('Time');
-  const allTypes = new Set();
- try {
-  const res2 = await fetch(`${urlQuery}`);
-  const data2 = await res2.json();
+// const getTypes = async () => {
+//   console.log("getTypes function Running...");
+//   console.time('Time');
+//   const allTypes = new Set();
+//  try {
+//   const res2 = await fetch(`${urlQuery}`);
+//   const data2 = await res2.json();
 
-  const batchSize = 10;
-  const results = data2.results;
+//   const batchSize = 10;
+//   const results = data2.results;
 
-  for (let i = 0; i <= results.length; i += batchSize) {
-    const batch = results.slice(i, i + batchSize);
+//   for (let i = 0; i <= results.length; i += batchSize) {
+//     const batch = results.slice(i, i + batchSize);
 
-    const batchPromises = batch.map(async (obj) => {
-        try{
-          const response = await fetch(obj.url);
-          const data3 = await response.json();
+//     const batchPromises = batch.map(async (obj) => {
+//         try{
+//           const response = await fetch(obj.url);
+//           const data3 = await response.json();
 
-          data3.types.forEach(typeObj => {
-            allTypes.add(typeObj.type.name);
-          })
+//           data3.types.forEach(typeObj => {
+//             allTypes.add(typeObj.type.name);
+//           })
 
-        } catch(error) {
-          console.error("Batch Error getting Pokémon types - ERROR: ", error);
-        }
-      });
+//         } catch(error) {
+//           console.error("Batch Error getting Pokémon types - ERROR: ", error);
+//         }
+//       });
 
-      await Promise.all(batchPromises);
-    }
-    console.log("All types array: ", Array.from(allTypes));
-    console.log("getTypes function total runtime...");
-    console.timeEnd('Time');
-    return Array.from(allTypes);
+//       await Promise.all(batchPromises);
+//     }
+//     console.log("All types array: ", Array.from(allTypes));
+//     console.log("getTypes function total runtime...");
+//     console.timeEnd('Time');
+//     return Array.from(allTypes);
 
-  } catch {
-    console.error("Main Try{} Error getting Pokémon types - ERROR: ", error)
-  }
-}
+//   } catch {
+//     console.error("Main Try{} Error getting Pokémon types - ERROR: ", error)
+//   }
+// }
 
-getTypes();
+// getTypes();
 
 const typesArr = [
   'grass',
