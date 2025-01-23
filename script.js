@@ -12,11 +12,6 @@ const fetchData = async () => {
     const res = await fetch(`${urlQuery}/${cleanSearchInput}`);
     const data = await res.json();
     showResults(data);
-    const res2 = await fetch(`${urlQuery}`);
-    const data2 = await res2.json();
-    // uniqueTypes used to get typesArr from all pokemon. //
-    // const uniqueTypes = await getTypes(data2);
-    // console.log("unique types: ", uniqueTypes);
   }catch (error) {
     console.error(`The following error occurred while fetching data from URL: https://pokeapi-proxy.freecodecamp.rocks/api/pokemon...
 ERROR: ${error}`);
@@ -24,25 +19,48 @@ ERROR: ${error}`);
   }
 }
 
-// getTypes used to get types from all pokemon objects for typesArr. //
-// const getTypes = async (data2) => {
-//   const allTypes = new Set();
+//getTypes used to get types from all pokemon objects for typesArr. //
+const getTypes = async () => {
+  console.log("getTypes function Running...");
+  console.time('Time');
+  const allTypes = new Set();
+ try {
+  const res2 = await fetch(`${urlQuery}`);
+  const data2 = await res2.json();
 
-//   for (const obj of data2.results) {
-//     try{
-//       const response = await fetch(obj.url);
-//       const data3 = await response.json();
+  const batchSize = 10;
+  const results = data2.results;
 
-//       data3.types.forEach(typeObj => {
-//         allTypes.add(typeObj.type.name);
-//       })
-//     } catch(error) {
-//       console.log("Error getting Pokémon types - ERROR: ", error);
-//     }
-//   }
+  for (let i = 0; i <= results.length; i += batchSize) {
+    const batch = results.slice(i, i + batchSize);
 
-//   return Array.from(allTypes);
-// }
+    const batchPromises = batch.map(async (obj) => {
+        try{
+          const response = await fetch(obj.url);
+          const data3 = await response.json();
+
+          data3.types.forEach(typeObj => {
+            allTypes.add(typeObj.type.name);
+          })
+
+        } catch(error) {
+          console.error("Batch Error getting Pokémon types - ERROR: ", error);
+        }
+      });
+
+      await Promise.all(batchPromises);
+    }
+    console.log("All types array: ", Array.from(allTypes));
+    console.log("getTypes function total runtime...");
+    console.timeEnd('Time');
+    return Array.from(allTypes);
+
+  } catch {
+    console.error("Main Try{} Error getting Pokémon types - ERROR: ", error)
+  }
+}
+
+getTypes();
 
 const typesArr = [
   'grass',
