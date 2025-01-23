@@ -28,12 +28,12 @@ ERROR: ${error}`);
 //   const res2 = await fetch(`${urlQuery}`);
 //   const data2 = await res2.json();
 
-//   const batchSize = 10;
+//   const batchSize = 100;
 //   const results = data2.results;
 
 //   for (let i = 0; i <= results.length; i += batchSize) {
 //     const batch = results.slice(i, i + batchSize);
-
+    
 //     const batchPromises = batch.map(async (obj) => {
 //         try{
 //           const response = await fetch(obj.url);
@@ -42,12 +42,10 @@ ERROR: ${error}`);
 //           data3.types.forEach(typeObj => {
 //             allTypes.add(typeObj.type.name);
 //           })
-
 //         } catch(error) {
 //           console.error("Batch Error getting Pokémon types - ERROR: ", error);
 //         }
 //       });
-
 //       await Promise.all(batchPromises);
 //     }
 //     console.log("All types array: ", Array.from(allTypes));
@@ -55,7 +53,7 @@ ERROR: ${error}`);
 //     console.timeEnd('Time');
 //     return Array.from(allTypes);
 
-//   } catch {
+//   } catch (error) {
 //     console.error("Main Try{} Error getting Pokémon types - ERROR: ", error)
 //   }
 // }
