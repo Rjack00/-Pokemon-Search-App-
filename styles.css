@@ -95,7 +95,6 @@ button {
     display: flex;
     padding: 2px 7px;
     color: black;
-    border-radius: 5px;
     align-items: center;
 }
 
